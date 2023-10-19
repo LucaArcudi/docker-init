@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\PaymentGateway\Paddle\Transaction as PaddleTransaction;
-use App\PaymentGateway\Stripe\Transaction as StripeTransaction;
+use App\Enums\Status;
+use App\PaymentGateway\Paddle\Transaction;
 
-echo '<pre>';
-var_dump(new StripeTransaction(100));
-echo '</pre>';
+$transaction = new Transaction();
 
-echo '<pre>';
-var_dump(new PaddleTransaction(1045));
-echo '</pre>';
+$transaction->setStatus(Status::PAID);
+
+var_dump($transaction);
