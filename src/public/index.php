@@ -2,15 +2,7 @@
 
 declare(strict_types=1);
 
-// require_once __DIR__ . '/../App/PaymentGateway/Stripe/Transaction.php';
-// require_once __DIR__ . '/../App/PaymentGateway/Paddle/Transaction.php';
-
-spl_autoload_register(
-    function ($class) {
-        $path =  __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
-        require_once $path;
-    }
-);
+require __DIR__ . '/../vendor/autoload.php';
 
 use App\PaymentGateway\Paddle\Transaction as PaddleTransaction;
 use App\PaymentGateway\Stripe\Transaction as StripeTransaction;
